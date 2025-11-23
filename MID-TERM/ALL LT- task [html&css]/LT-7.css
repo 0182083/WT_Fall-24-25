@@ -1,0 +1,44 @@
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+}
+ 
+/* Sticky Header */
+header {
+    position: sticky;
+    top: 0;
+    background-color: #222;
+    color: white;
+    padding: 15px 20px;
+    border-bottom: 3px solid #0d6efd;
+    z-index: 999;
+}
+ 
+header h1 {
+    margin: 0;
+    font-size: 24px;
+}
+ 
+nav {
+    margin-top: 8px;
+}
+ 
+nav a {
+    color: #fff;
+    margin-right: 15px;
+    text-decoration: none;
+    font-weight: bold;
+}
+ 
+nav a:hover {
+    text-decoration: underline;
+}
+ 
+/* Main content */
+.content {
+    margin-top: 20px;
+    padding: 20px;
+    line-height: 1.8;
+}
+ 
+ 

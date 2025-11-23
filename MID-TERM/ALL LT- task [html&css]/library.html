@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Library Management</title>
+  <link rel="stylesheet" href="libray.css">
+</head>
+<body>
+  <h1>Library Management System</h1>
+ 
+  <div class="row">
+    <label for="title">Title</label>
+    <input id="title" type="text" placeholder="Letters only, no spaces">
+  </div>
+ 
+  <div class="row">
+    <label for="year">Year</label>
+    <input id="year" type="number" placeholder="e.g. 2005">
+  </div>
+ 
+  <div class="row">
+    <button id="addBtn">Add Book</button>
+    <div id="message" class="error"></div>
+  </div>
+ 
+  <table id="booksTable">
+    <thead>
+      <tr>
+        <th>Title</th>
+        <th>Year</th>
+      </tr>
+    </thead>
+    <tbody>
+      <!-- Book rows will be added here -->
+    </tbody>
+  </table>
+ 
+  <script src="script.js"></script>
+</body>
+</html>
+ 

@@ -1,0 +1,287 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <title>University Admission Form</title>
+  <style>
+    /* Simple modern styling */
+    :root {
+      font-family: system-ui, -apple-system, "Segoe UI", Roboto, "Helvetica Neue", Arial;
+      --accent: #0b6efd;
+      --muted: #6b7280;
+      --bg: #f7f9fc;
+      --card: #ffffff;
+      --radius: 12px;
+      --shadow: 0 6px 18px rgba(16,24,40,0.06);
+    }
+    body {
+      margin: 24px;
+      background: linear-gradient(180deg, #f6fbff 0%, var(--bg) 100%);
+      color: #0f172a;
+      -webkit-font-smoothing: antialiased;
+      -moz-osx-font-smoothing: grayscale;
+    }
+    .container {
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    header {
+      text-align: center;
+      margin-bottom: 18px;
+    }
+    h1 {
+      font-size: 20px;
+      margin: 6px 0;
+    }
+    p.lead {
+      color: var(--muted);
+      margin: 0 0 18px;
+      font-size: 14px;
+    }
+    form.card {
+      background: var(--card);
+      border-radius: var(--radius);
+      padding: 20px;
+      box-shadow: var(--shadow);
+      border: 1px solid rgba(15,23,42,0.04);
+    }
+    fieldset {
+      border: 1px solid rgba(15,23,42,0.06);
+      padding: 16px;
+      border-radius: 8px;
+      margin-bottom: 14px;
+      background: #fff;
+    }
+    legend {
+      font-weight: 600;
+      padding: 0 8px;
+      font-size: 15px;
+    }
+    .grid {
+      display: grid;
+      gap: 12px;
+      grid-template-columns: repeat(2, 1fr);
+    }
+    .full { grid-column: 1 / -1; }
+    label {
+      display: block;
+      font-size: 13px;
+      margin-bottom: 6px;
+      color: #0f172a;
+    }
+    input[type="text"], input[type="email"], input[type="tel"],
+    input[type="date"], select, textarea, input[type="file"], input[type="number"] {
+      width: 100%;
+      padding: 10px 12px;
+      border-radius: 8px;
+      border: 1px solid rgba(15,23,42,0.08);
+      font-size: 14px;
+      box-sizing: border-box;
+      background: #fbfdff;
+    }
+    textarea { min-height: 88px; resize: vertical; }
+    .help { font-size: 12px; color: var(--muted); margin-top: 6px; }
+    .inline {
+      display:flex;
+      gap:12px;
+      align-items:center;
+      flex-wrap:wrap;
+    }
+    .checkbox-group, .radio-group {
+      display:flex;
+      flex-direction:column;
+      gap:8px;
+    }
+    .actions {
+      display:flex;
+      gap:12px;
+      justify-content:flex-end;
+      margin-top: 12px;
+    }
+    button {
+      padding: 10px 16px;
+      border-radius: 10px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      font-size: 14px;
+    }
+    button[type="submit"] { background: var(--accent); color: white; box-shadow: 0 6px 12px rgba(11,110,253,0.12); }
+    button[type="reset"] { background: transparent; color: var(--muted); border: 1px solid rgba(15,23,42,0.06); }
+    @media (max-width: 720px) {
+      .grid { grid-template-columns: 1fr; }
+      .actions { justify-content: stretch; }
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <header>
+      <h1>University Admission Form</h1>
+      <p class="lead">Please fill in the form carefully. Fields marked with * are required.</p>
+    </header>
+ 
+    <form class="card" action="#" method="post" enctype="multipart/form-data" novalidate>
+      <!-- Personal Information -->
+      <fieldset>
+        <legend>Personal Information</legend>
+ 
+        <div class="grid">
+          <div>
+            <label for="fullname">Full name *</label>
+            <input id="fullname" name="fullname" type="text" maxlength="100" required placeholder="e.g. A. B. Student" />
+            <div class="help">Maximum 100 characters.</div>
+          </div>
+ 
+          <div>
+            <label for="email">Email address *</label>
+            <input id="email" name="email" type="email" maxlength="100" required placeholder="example@mail.com" />
+          </div>
+ 
+          <div>
+            <label for="phone">Phone number *</label>
+            <input id="phone" name="phone" type="tel" maxlength="15" required placeholder="+8801XXXXXXXXX"
+                   pattern="^\+?\d{8,15}$" title="Enter a valid phone number (8–15 digits, optional leading +)" />
+            <div class="help">Include country code if applicable. Digits only.</div>
+          </div>
+ 
+          <div>
+            <label for="dob">Date of birth *</label>
+            <input id="dob" name="dob" type="date" required />
+          </div>
+ 
+          <div class="full">
+            <label for="address">Address</label>
+            <textarea id="address" name="address" maxlength="250" placeholder="Street, City, Postal Code"></textarea>
+            <div class="help">Maximum 250 characters (optional).</div>
+          </div>
+ 
+          <div>
+            <label>Gender *</label>
+            <div class="radio-group" role="radiogroup" aria-labelledby="gender-label">
+              <label><input type="radio" name="gender" value="male" required /> Male</label>
+              <label><input type="radio" name="gender" value="female" /> Female</label>
+              <label><input type="radio" name="gender" value="other" /> Other</label>
+            </div>
+          </div>
+ 
+          <div>
+            <label>Interests (optional)</label>
+            <div class="checkbox-group">
+              <label><input type="checkbox" name="interest[]" value="sports" /> Sports</label>
+              <label><input type="checkbox" name="interest[]" value="music" /> Music</label>
+              <label><input type="checkbox" name="interest[]" value="volunteer" /> Volunteer</label>
+              <label><input type="checkbox" name="interest[]" value="research" /> Research</label>
+            </div>
+          </div>
+        </div>
+      </fieldset>
+ 
+      <!-- Academic Information -->
+      <fieldset>
+        <legend>Academic Information</legend>
+ 
+        <div class="grid">
+          <div>
+            <label for="qualification">Highest Qualification *</label>
+            <select id="qualification" name="qualification" required>
+              <option value="">-- Select qualification --</option>
+              <option value="hsc">HSC / A-level / Equivalent</option>
+              <option value="diploma">Diploma</option>
+              <option value="bachelor">Bachelor</option>
+              <option value="other">Other</option>
+            </select>
+          </div>
+ 
+          <div>
+            <label for="prevInstitution">Previous Institution</label>
+            <input id="prevInstitution" name="prev_institution" type="text" maxlength="100" placeholder="Name of school/college/university" />
+          </div>
+ 
+          <div>
+            <label for="grade">GPA / Grade</label>
+            <input id="grade" name="grade" type="text" maxlength="12" placeholder="e.g. 3.75 or A+" />
+          </div>
+ 
+          <div>
+            <label for="department">Preferred Department *</label>
+            <select id="department" name="department" required>
+              <option value="">-- Choose Department --</option>
+              <option value="cs">Computer Science</option>
+              <option value="ee">Electrical & Electronic</option>
+              <option value="business">Business Administration</option>
+              <option value="science">Science</option>
+              <option value="arts">Arts & Social Science</option>
+            </select>
+          </div>
+ 
+          <div>
+            <label for="program">Preferred Program / Course *</label>
+            <select id="program" name="program" required>
+              <option value="">-- Choose Program --</option>
+              <option value="bsc_cs">B.Sc. in Computer Science</option>
+              <option value="bs_ece">B.Sc. in ECE</option>
+              <option value="bba">BBA</option>
+              <option value="ba">B.A.</option>
+            </select>
+          </div>
+ 
+          <div>
+            <label for="intake">Intake (term)</label>
+            <select id="intake" name="intake">
+              <option value="">-- Choose intake --</option>
+              <option value="fall">Fall</option>
+              <option value="spring">Spring</option>
+              <option value="summer">Summer</option>
+            </select>
+          </div>
+        </div>
+      </fieldset>
+ 
+      <!-- Documents -->
+      <fieldset>
+        <legend>Documents</legend>
+ 
+        <div class="grid">
+          <div>
+            <label for="photo">Profile Photo (JPEG/PNG) *</label>
+            <input id="photo" name="photo" type="file" accept="image/jpeg,image/png" required />
+            <div class="help">Accepts JPEG or PNG. Max file size enforcement can be done server-side.</div>
+          </div>
+ 
+          <div>
+            <label for="transcript">Transcript / Certificate (PDF) *</label>
+            <input id="transcript" name="transcript" type="file" accept="application/pdf" required />
+            <div class="help">Upload transcript or mark sheet (PDF).</div>
+          </div>
+ 
+          <div class="full">
+            <label for="additional">Additional Document (optional)</label>
+            <input id="additional" name="additional" type="file" accept=".pdf,.doc,.docx,image/*" />
+            <div class="help">Optional: CV, recommendation letter, etc.</div>
+          </div>
+        </div>
+      </fieldset>
+ 
+      <!-- Declaration & Submit -->
+      <fieldset>
+        <legend>Declaration</legend>
+        <div>
+          <label for="declaration">I confirm that the information provided is true and correct *</label>
+          <div class="inline" style="margin-top:6px">
+            <label><input id="declaration" name="declaration" type="checkbox" required /> I agree</label>
+          </div>
+        </div>
+      </fieldset>
+ 
+      <div class="actions">
+        <button type="reset">Reset</button>
+        <button type="submit">Submit Application</button>
+      </div>
+    </form>
+  </div>
+</body>
+</html>
+b.sc
+ 

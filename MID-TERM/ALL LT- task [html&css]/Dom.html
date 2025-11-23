@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+ 
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Student Management System</title>
+    <link rel="stylesheet" href="Dom.css">
+</head>
+ 
+<body>
+ 
+    <h1>Student Management System</h1>
+ 
+    <form id="student-form">
+        <label for="student-name">Student Name:</label>
+        <input type="text" id="student-name" placeholder="Enter student name">
+        <button type="submit">Add Student</button>
+    </form>
+ 
+    <h2>Student List</h2>
+ 
+    <ul id="student-list" class="student-list"></ul>
+ 
+    <script src="javascript.js"></script>
+    <script>
+        document.getElementById("student-form").addEventListener("submit", function(event) {
+            event.preventDefault();
+            var studentName = document.getElementById("student-name").value;
+ 
+            if (studentName.trim() === "") {
+                alert("Student name is required!");
+                return;
+            }
+ 
+            var li = document.createElement("li");
+            li.textContent = studentName;
+            document.getElementById("student-list").appendChild(li);
+ 
+            document.getElementById("student-name").value = "";
+        });
+    </script>
+ 
+</body>
+ 
+</html>
+ 

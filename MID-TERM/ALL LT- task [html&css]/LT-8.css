@@ -1,0 +1,10 @@
+overflow-box {
+    width: 300px;
+    height: 200px;
+    border: 2px solid black;
+    padding: 10px;
+    overflow: scroll; /* Change to visible, hidden, or auto to test other overflow values */
+}
+ 
+.overflow-box p {
+    margin: 5px;
